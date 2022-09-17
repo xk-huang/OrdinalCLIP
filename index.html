@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head>
+<title>OrdinalCLIP: Learning Rank Prompts for Language-Guided Ordinal Regression</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+<link rel="icon" href="images/logo3.png">
+<link href="style.css" rel="stylesheet">
+<style>
+  .container_2{
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+  .collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+
+  .active, .collapsible:hover {
+    background-color: #555;
+  }
+  
+  .content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+  }
+</style>
+
+<style>
+.paperthumb {
+  float:left; width: 120px; margin: 3px 10px 7px 0;
+}
+.paperdesc {
+  clear: both;
+}
+</style>
+</head>
+
+<body class="nd-docs">
+<div class="nd-pageheader">
+ <div class="container">
+ <p class="lead" style="font-size:30px">
+    <b><a href="https://arxiv.org/abs/2206.02338">OrdinalCLIP: Learning Rank Prompts for Language-Guided Ordinal Regression</a></b>
+  <address style="font-size: 110%;">
+    <nobr><a href="https://li-wanhua.github.io/">Wanhua Li</a><sup>*1</sup>,</nobr>
+    <nobr><a href="https://xk-huang.github.io/">Xiaoke Huang</a><sup>*1</sup>,</nobr>
+    <nobr><a href="http://www.zhengzhu.net/">Zheng Zhu</a><sup>2</sup>,</nobr>
+    <nobr><a href="https://andytang15.github.io/">Yansong Tang</a><sup>1</sup>,</nobr>
+    <nobr><a href="https://scholar.google.com/citations?hl=zh-CN&user=Xrh1OIUAAAAJ&view_op=list_works&sortby=pubdate">Xiu Li</a><sup>1</sup>,</nobr>
+    <nobr><a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/">Jiwen Lu</a><sup>†1</sup>,</nobr>
+    <nobr><a href="https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en">Jie Zhou</a><sup>1</sup>
+  <br>
+      <nobr><sup>1</sup>Tsinghua University,</nobr>
+      <nobr><sup>2</sup>PhiGent Robotics</nobr>
+  </address>
+   <!-- <div>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2021</div> -->
+  <address style="font-size: 120%;">
+	 <!-- <br> -->
+  [<a href="https://arxiv.org/abs/2206.02338">Paper(Arxiv)</a>]&nbsp;&nbsp;&nbsp;&nbsp;
+  <!-- [<a href="https://www.youtube.com/watch?v=NCJZyvKZ8vc">Video(Youtube)</a>]&nbsp;&nbsp;&nbsp;&nbsp; -->
+  [<a href="https://github.com/xk-huang/OrdinalCLIP/">Code(Github)</a>]&nbsp;&nbsp;&nbsp;&nbsp;
+  [<a href="https://zhuanlan.zhihu.com/p/565034693">Post(Zhihu)</a>]
+  </address>
+  <small>∗Equal contribution. †Corresponding author.</small>
+ </div>
+ </p>
+ </div>
+</div> <!-- end nd-pageheader -->
+
+<div class="container">
+
+<p align="center">
+    <img src="images/teaser.png" width="90%">
+</p>
+<p><b>Figure 1: The key idea of our paradigm.</b> Existing methods usually learn the rank concepts from the training data. Instead, we leverage the language priors to learn the rank concepts. We treat each rank category as text and extract the language prototypes with a well-learned text encoder. We align image features into the well-learned language latent space. We further propose differentiable rank prompts to better exploit the ordinality in the language priors from the fixed text encoder.</p>
+
+
+<h2>Abstract</h2><hr>
+<p>This paper presents a language-powered paradigm for ordinal regression. Existing methods usually treat each rank as a category and employ a set of weights to learn these concepts. These methods are easy to overfit and usually attain unsatisfactory performance as the learned concepts are mainly derived from the training set. Recent large pre-trained vision-language models like CLIP have shown impressive performance on various visual tasks. In this paper, we propose to learn the rank concepts from the rich semantic CLIP latent space. Specifically, we reformulate this task as an image-language matching problem with a contrastive objective, which regards labels as text and obtains a language prototype from a text encoder for each rank. While prompt engineering for CLIP is extremely time-consuming, we propose OrdinalCLIP, a differentiable prompting method for adapting CLIP for ordinal regression. OrdinalCLIP consists of learnable context tokens and learnable rank embeddings; The learnable rank embeddings are constructed by explicitly modeling numerical continuity, resulting in well-ordered, compact language prototypes in the CLIP space. Once learned, we can only save the language prototypes and discard the huge language model, resulting in zero additional computational overhead compared with the linear head counterpart. Experimental results show that our paradigm achieves competitive performance in general ordinal regression tasks, and gains improvements in few-shot and distribution shift settings for age estimation.</p>
+
+
+<h2>Method</h2><hr>
+<p>OrdinalCLIP consists of three components: (1) learnable rank embeddings module; (2) Rank embeddings and context embeddings joint encoder; (3) Language prototypes - images matching module.</p>
+
+<p align="center">
+    <img src="images/framework.png" width="90%">
+</p>
+<p><b>Figure 2: The framework of OrdinalCLIP.</b> We regard rank categories as text and employ a language model to leverage the language priors. For each rank, we concatenate its word embedding and learnable prompt context. Then they are sent to a language model to extract the corresponding language prototype. To preserve the ordinal property of language prototypes, we explicitly construct the ordinal rank embeddings that are interpolated from several base rank embeddings. We found the ordinality of the rank embeddings can be implicitly propagated toward the language prototypes.</p>
+
+<!-- <h2>Introduction Video</h2><hr>
+<p align="center">
+<iframe width="800" height="450" src="https://www.youtube.com/embed/NCJZyvKZ8vc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p> -->
+
+  
+
+<h2>Results</h2><hr>
+
+<p><b>Figure 3: The similarity matrices of language prototypes for different rank prompts.</b> The redder, the more similar the pair of language prototypes. The percentages of prototype pairs that obey the ordinality are: 49.13%, 49.71%, 54.84%, 59.92%, and 65.94%, respectively.</p>
+<p align='center'><img src="images/image(5).png" width="90%"></p>
+
+
+<p><b>Table 1: Ablation experiments on the MORPH II dataset.</b></p>
+<p align='center'><img src="images/image(4).png" width="90%"></p>
+
+
+<h2>Summary</h2><hr>
+
+<p>1. Compared to previous paradigms, the new paradigm based on language-image matching learns a more ordered and very compact feature space, and achieves better performance. This compact feature space is still highly discriminative, which demonstrates the rich semantic information and structure of the feature space of large-scale pre-trained visual-linguistic models (e.g. CLIP). The new paradigm achieves better performance within the distribution shift and few-shot settings.</p>
+<p>2. As the ordinality of the language prototype increases, the model performance can be improved. Compared to previous algorithms, the interpolation-based rank prompt embeddings constructed by OrdinalCLIP significantly improves the orderliness of the embedding. In addition, the model also achieves better performance with fewer samples and distribution bias settings.</p>
+<p>3. The introduction of learnable contextual embeddings beyond modelling ordinal relations can further improve the performance of the model compared to manual design of contextual prompts.
+</p>
+
+<!-- <p style="clear:both;">
+<div class="card">
+<h3 class="card-header">Citation</h3>
+<div class="card-block">
+<div class="card-text clickselect">
+  Wanhua Li, Xiaoke Huang, Jiwen Lu, Jianjiang Feng, and Jie Zhou. <em>Learning Probabilistic Ordinal Embeddings for Uncertainty-Aware Regression.</em> IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2021.
+</div>
+</div>
+</div>
+</p> -->
+
+<p>
+<div class="card">
+<h3 class="card-header">Bibtex</h3>
+<div class="card-block">
+<pre class="card-text clickselect">
+@article{Li2022OrdinalCLIP,
+         title={OrdinalCLIP: Learning Rank Prompts for Language-Guided Ordinal Regression},
+         author={Wanhua Li and Xiaoke Huang and Zheng Zhu and Yansong Tang and Xiu Li and Jiwen Lu and Jie Zhou},
+         journal={ArXiv},
+         year={2022},
+         volume={abs/2206.02338}
+}
+</pre>
+</div>
+</div>
+</p>
+
+
+<p align="right">
+     <a href="https://hanlab.mit.edu/projects/anycost-gan/">Website Template</a>
+</p>
+
+</div>
+</div> <!-- row -->
+
+</div> <!-- container -->
+
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight * 50+ "px";
+      } 
+      content.style.height = "550%";
+    });
+  }
+</script>
+
+</body>
+</html>
+
+
