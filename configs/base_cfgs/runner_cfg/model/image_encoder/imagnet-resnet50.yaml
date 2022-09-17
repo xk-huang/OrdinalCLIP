@@ -1,0 +1,5 @@
+runner_cfg:
+  load_weights_cfg:
+    init_image_encoder_weights: .cache/resnet/resnet50_imagenet.pt
+  model_cfg:
+    image_encoder_name: resnet50

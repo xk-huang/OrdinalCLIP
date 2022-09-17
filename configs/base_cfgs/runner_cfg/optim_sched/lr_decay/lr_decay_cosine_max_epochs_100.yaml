@@ -1,0 +1,7 @@
+runner_cfg:
+  optimizer_and_scheduler_cfg:
+    lr_scheduler_cfg:
+      lr_scheduler_name: cosine
+      max_epochs: 100
+trainer_cfg:
+  max_epochs: 100

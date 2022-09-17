@@ -1,0 +1,3 @@
+data_cfg:
+  label_distributed_shift:
+    scale_factor: 0.1

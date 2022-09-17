@@ -1,0 +1,5 @@
+runner_cfg:
+  load_weights_cfg:
+    init_image_encoder_weights: .cache/vgg/vgg_imdb_wiki.pth
+  model_cfg:
+    image_encoder_name: vgg16

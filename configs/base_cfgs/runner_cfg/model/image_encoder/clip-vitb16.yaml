@@ -1,0 +1,3 @@
+runner_cfg:
+  model_cfg:
+    image_encoder_name: ViT-B/16

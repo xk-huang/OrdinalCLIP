@@ -1,0 +1,8 @@
+runner_cfg:
+  optimizer_and_scheduler_cfg:
+    param_dict_cfg:
+      lr_image_encoder: 0.0001
+      staged_lr_image_encoder:
+        new_layers: ['classifier.6.weight', 'classifier.6.bias']
+        base_lr_mult: 0.1
+        new_lr_mult: 1.0

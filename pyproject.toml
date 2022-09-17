@@ -1,0 +1,13 @@
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+line_length = 120
+skip_gitignore = true
+
+[tool.mypy]
+show_error_codes = true
+
+[tool.bandit]
+skips =  ["B101"]

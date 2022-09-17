@@ -1,0 +1,5 @@
+runner_cfg:
+  model_cfg:
+    prompt_learner_cfg:
+      type: RankPromptLearner
+      num_base_ranks: 2

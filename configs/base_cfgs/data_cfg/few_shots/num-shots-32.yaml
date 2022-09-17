@@ -1,0 +1,3 @@
+data_cfg:
+  few_shot:
+    num_shots: 32

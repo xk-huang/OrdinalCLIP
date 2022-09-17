@@ -1,0 +1,4 @@
+runner_cfg:
+  model_cfg:
+    prompt_learner_cfg:
+      init_rank_path: data/MORPH/classnames.txt

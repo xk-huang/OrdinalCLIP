@@ -1,0 +1,44 @@
+ordinalclip:
+  - configs/default.yaml
+  - configs/base_cfgs/data_cfg/datasets/morph/
+  - configs/base_cfgs/runner_cfg/model/image_encoder/imdb-vgg16.yaml
+  - configs/base_cfgs/runner_cfg/model/prompt_learner/init_context/init-context-morph.yaml
+  - configs/base_cfgs/runner_cfg/model/prompt_learner/rank-prompt-learner.yaml
+  - configs/base_cfgs/runner_cfg/model/prompt_learner/rank_prompt_learner/interp/rank-interp-linear.yaml
+  - configs/base_cfgs/runner_cfg/model/prompt_learner/rank_prompt_learner/num_bsae_rank/num-base-rank-3.yaml
+  - configs/base_cfgs/runner_cfg/model/text_encoder/clip-rn50-cntprt.yaml
+  - configs/base_cfgs/runner_cfg/model/ordinalclip.yaml
+  - configs/base_cfgs/runner_cfg/optim_sched/image_encoder/tune-image.yaml
+  - configs/base_cfgs/runner_cfg/optim_sched/prompt_learner/tune-ctx-rank.yaml
+  - configs/base_cfgs/runner_cfg/optim_sched/optim/radam.yaml
+  - configs/base_cfgs/runner_cfg/seed
+  - configs/base_cfgs/runner_cfg/optim_sched/weight_decay/weight_decay_5e-4.yaml
+  - configs/base_cfgs/runner_cfg/optim_sched/lr_decay/lr_decay_cosine_max_epochs_100.yaml
+
+coop:
+  - configs/default.yaml
+  - configs/base_cfgs/data_cfg/datasets/morph/
+  - configs/base_cfgs/runner_cfg/model/image_encoder/imdb-vgg16.yaml
+  - configs/base_cfgs/runner_cfg/model/prompt_learner/init_context/init-context-morph.yaml
+  - configs/base_cfgs/runner_cfg/model/prompt_learner/init_rank/init-rank-morph.yaml
+  - configs/base_cfgs/runner_cfg/model/prompt_learner/plain-prompt-learner.yaml
+  - configs/base_cfgs/runner_cfg/model/text_encoder/clip-rn50-cntprt.yaml
+  - configs/base_cfgs/runner_cfg/model/ordinalclip.yaml
+  - configs/base_cfgs/runner_cfg/optim_sched/image_encoder/tune-image.yaml
+  - configs/base_cfgs/runner_cfg/optim_sched/prompt_learner/tune-ctx-rank.yaml
+  - configs/base_cfgs/runner_cfg/optim_sched/optim/radam.yaml
+  - configs/base_cfgs/runner_cfg/seed
+  - configs/base_cfgs/runner_cfg/optim_sched/weight_decay/weight_decay_5e-4.yaml
+  - configs/base_cfgs/runner_cfg/optim_sched/lr_decay/lr_decay_cosine_max_epochs_100.yaml
+
+cnn:
+  - configs/default.yaml
+  - configs/base_cfgs/data_cfg/datasets/morph/
+  - configs/base_cfgs/runner_cfg/model/image_encoder/imdb-vgg16.yaml
+  - configs/base_cfgs/runner_cfg/model/text_encoder/clip-rn50-cntprt.yaml
+  - configs/base_cfgs/runner_cfg/model/baseline.yaml
+  - configs/base_cfgs/runner_cfg/optim_sched/image_encoder/tune-image.yaml
+  - configs/base_cfgs/runner_cfg/optim_sched/optim/radam.yaml
+  - configs/base_cfgs/runner_cfg/seed
+  - configs/base_cfgs/runner_cfg/optim_sched/weight_decay/weight_decay_5e-4.yaml
+  - configs/base_cfgs/runner_cfg/optim_sched/lr_decay/lr_decay_cosine_max_epochs_100.yaml

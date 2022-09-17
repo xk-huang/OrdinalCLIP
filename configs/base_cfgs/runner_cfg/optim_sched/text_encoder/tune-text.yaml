@@ -1,0 +1,4 @@
+runner_cfg:
+  optimizer_and_scheduler_cfg:
+    param_dict_cfg:
+      lr_text_encoder: 0.0001

@@ -1,0 +1,4 @@
+runner_cfg:
+  model_cfg:
+    prompt_learner_cfg:
+      init_context: 'the age of the person is'

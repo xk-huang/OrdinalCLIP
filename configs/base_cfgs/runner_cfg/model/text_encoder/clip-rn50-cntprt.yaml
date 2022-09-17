@@ -1,0 +1,3 @@
+runner_cfg:
+  model_cfg:
+    text_encoder_name: RN50

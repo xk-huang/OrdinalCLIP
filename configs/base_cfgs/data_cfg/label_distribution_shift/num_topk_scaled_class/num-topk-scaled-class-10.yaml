@@ -1,0 +1,3 @@
+data_cfg:
+  label_distributed_shift:
+    num_topk_scaled_class: 10

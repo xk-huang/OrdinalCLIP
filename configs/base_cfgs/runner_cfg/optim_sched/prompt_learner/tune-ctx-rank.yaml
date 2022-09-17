@@ -1,0 +1,5 @@
+runner_cfg:
+  optimizer_and_scheduler_cfg:
+    param_dict_cfg:
+      lr_prompt_learner_context: 0.0001
+      lr_prompt_learner_ranks: 0.0001
