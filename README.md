@@ -6,9 +6,16 @@ This repository contains PyTorch implementation of "OrdinalCLIP: Learning Rank P
 
 ![intro](figs/intro.png)
 
-[[Project Page]](https://sites.google.com/view/ordinalclip)
+[[Project Page]](https://xk-huang.github.io/OrdinalCLIP/)
 [[arXiv]](https://arxiv.org/abs/2206.02338)
+
 ## Prerequisite  
+
+### Clone repository
+
+```bash
+git clone --recursive https://github.com/xk-huang/OrdinalCLIP.git
+```
 
 ### Dataset
 
@@ -34,17 +41,10 @@ Weights download links: [[Google Drive]](https://drive.google.com/drive/folders/
     └── vgg_imdb_wiki.pt
 ```
 
-
-### Clone repository
-
-```shell
-git clone --recursive https://github.com/xk-huang/OrdinalCLIP.git
-```
-
 ## Installation
 
 There are two options to set up environment. 
-> recommend Docker environment.
+> Recommend Docker environment.
 
 ### Docker Environment
 
@@ -62,14 +62,14 @@ There are two options to set up environment.
 
 </details>
 
-```shell
+```bash
 docker build -t ordinalclip:latest .
 ```
 
 ### Local Environment
 By `.yaml` file:
 
-```shell
+```bash
 conda env create -f environment.yaml
 conda activate ordinalclip
 pip install -r requirements.txt
@@ -80,7 +80,7 @@ pip install -e .
 
 Or manually install:
 
-```shell
+```bash
 conda create --name ordinalclip python=3.8
 conda activate ordinalclip
 conda install pytorch==1.10.1 torchvision==0.11.2 cudatoolkit=11.3 -c pytorch -c conda-forge
@@ -93,7 +93,7 @@ pip install -e .
 
 For dev:
 
-```shell
+```bash
 pip install bandit==1.7.0 black==22.3.0 flake8-docstrings==1.6.0 flake8==3.9.1 flynt==0.64 isort==5.8.0 mypy==0.902 pre-commit==2.13.0 pytest ipython
 pre-commit install
 ```
@@ -107,7 +107,7 @@ pre-commit install
 
 Start Docker container
 
-```
+```bash
 docker run -itd --gpus all \
   -v $(realpath .cache/):/workspace/OrdinalCLIP/.cache \
   -v $(realpath data/):/workspace/OrdinalCLIP/data \
@@ -122,7 +122,7 @@ docker exec -it ordinalclip bash
 
 After running, remove container and release resources:
 
-```
+```bash
 exit # or Ctrl^D
 docker rm -f ordinalclip
 ```
@@ -133,26 +133,26 @@ docker rm -f ordinalclip
 
 Single-run mode:
 
-```shell
+```bash
 python scripts/run.py --config configs/default.yaml --config configs/base_cfgs/*.yml --config ...
 ```
 
 Multi-run mode:
 
-```shell
+```bash
 python scripts/experiments/meta_config_generator.py -c $meta_config_file
 python scripts/experiments/config_sweeper.py --max_num_gpus_used_in_parallel 8 --num_jobs_per_gpu 1 -d $sweep_config_dir 
 ```
 
-Visualizing and parsing ordinality:
+Visualizing and quantifying ordinality:
 
-```shell
-CUDA_VISIBLE_DEVICES=-1 find results/ -name 'config.yaml' -exec  python scripts/vis_ordinality.py -c {} \;
+```bash
+CUDA_VISIBLE_DEVICES=-1 find results/ -name 'config.yaml' -exec python scripts/vis_ordinality.py -c {} \;
 ```
 
-Parsing results
+Parsing results:
 
-```shell
+```bash
 python scripts/experiments/parse_results.py -d $result_dir -p 'test_stats.json'
 python scripts/experiments/parse_results.py -d $result_dir -p 'ordinality.json'
 # or
@@ -162,8 +162,8 @@ python scripts/experiments/parse_results.py -T <(find -name 'ordinality.json') -
 
 ## Experiments Structure
 
-Each experiments has its own name, with several config component names split by `"_"`.
-The experiments fold includes:
+Each experiment has its own name, with several config component names split by `"_"`.
+The experiment folder includes:
 
 - `ckpt/`: checkpoints
 - `*_logger/`: the logs from `pytorch_lightning`
@@ -172,6 +172,10 @@ The experiments fold includes:
 - `val/test_stats.json`: metrics to be parsed
 - `val/val_stats.json`: metrics to be parsed
 - `val/ordinality.json`: metrics to be parsed
+
+## Training and Evaluation Logs
+
+Please check out releases: https://github.com/xk-huang/OrdinalCLIP/releases/tag/train_eval_logs
 
 ## The Code Structure
 
