@@ -1,6 +1,6 @@
 # OrdinalCLIP
 
-Created by [Wanhua Li](https://raoyongming.github.io/)\*, [Xiaoke Huang](https://wl-zhao.github.io/)\*, [Zheng Zhu](http://www.zhengzhu.net/), [Yansong Tang](https://andytang15.github.io/), [Xiu Li](https://scholar.google.com/citations?hl=zh-CN&user=Xrh1OIUAAAAJ&view_op=list_works&sortby=pubdate), [Jiwen Lu](https://scholar.google.com/citations?user=TN8uDQoAAAAJ&hl=en&authuser=1)†, [Jie Zhou](https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1)
+Created by [Wanhua Li](https://raoyongming.github.io/)\*, [Xiaoke Huang](https://xk-huang.github.io/)\*, [Zheng Zhu](http://www.zhengzhu.net/), [Yansong Tang](https://andytang15.github.io/), [Xiu Li](https://scholar.google.com/citations?hl=zh-CN&user=Xrh1OIUAAAAJ&view_op=list_works&sortby=pubdate), [Jiwen Lu](https://scholar.google.com/citations?user=TN8uDQoAAAAJ&hl=en&authuser=1)†, [Jie Zhou](https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1)
 
 This repository contains PyTorch implementation of "OrdinalCLIP: Learning Rank Prompts for Language-Guided Ordinal Regression".
 
@@ -8,6 +8,7 @@ This repository contains PyTorch implementation of "OrdinalCLIP: Learning Rank P
 
 [[Project Page]](https://xk-huang.github.io/OrdinalCLIP/)
 [[arXiv]](https://arxiv.org/abs/2206.02338)
+[[Zhihu]](https://zhuanlan.zhihu.com/p/565034693)
 
 ## Prerequisite  
 
