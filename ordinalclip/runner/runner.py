@@ -157,10 +157,7 @@ class Runner(pl.LightningModule):
         kl_loss = self.kl_loss_func(F.log_softmax(logits_t, dim=-1), y_t_reduction) / num_slots
         return kl_loss
 
-    def compute_per_example_metrics(self, logits, y, gather_type="exp"):
-        dtype = logits.dtype
-        probs = F.softmax(logits, -1)
-
+    def convert_logits_to_predicions(self, logits, gather_type="max"):
         if gather_type == "exp":
             rank_output_value_array = self.rank_output_value_array.type(dtype)
             predict_y = torch.sum(probs * rank_output_value_array, dim=-1)
@@ -168,6 +165,17 @@ class Runner(pl.LightningModule):
             predict_y = torch.argmax(probs, dim=-1).type(dtype)
         else:
             raise ValueError(f"Invalid gather_type: {gather_type}")
+        return predict_y
+
+    def make_predictions(self, images, gather_type="max"):
+        logits, *_ = self.module(x)
+        return self.convert_logits_to_predicions(logits, gather_type)
+
+    def compute_per_example_metrics(self, logits, y, gather_type="max"):
+        dtype = logits.dtype
+        probs = F.softmax(logits, -1)
+
+        predict_y = self.convert_logits_to_predicions(logits, gather_type)
 
         y = y.type(dtype)
         mae = torch.abs(predict_y - y)
