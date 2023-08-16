@@ -226,6 +226,13 @@ Many thanks to the following repositories:
 
 - [CoOp](https://github.com/KaiyangZhou/CoOp), [CLIP](https://github.com/openai/CLIP), [PyTorch Lightning](https://github.com/Lightning-AI/lightning), [MMCV](https://github.com/open-mmlab/mmcv), [MMDetection](https://github.com/open-mmlab/mmdetection)
 
+## What's More
+
+Check out these amazing works leveraging CLIP for number problems!
+
+- [CrowdCLIP: Unsupervised Crowd Counting via Vision-Language Model](https://github.com/dk-liang/CrowdCLIP)
+- [L2RCLIP: Learning-to-Rank Meets Language: Boosting Language-Driven Ordering Alignment for Ordinal Classification](https://arxiv.org/abs/2306.13856)
+
 ## Citation
 
 If you find this codebase helpful, please consider to cite:
