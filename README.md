@@ -1,4 +1,10 @@
 # OrdinalCLIP
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ordinalclip-learning-rank-prompts-for/age-estimation-on-adience-1)](https://paperswithcode.com/sota/age-estimation-on-adience-1?p=ordinalclip-learning-rank-prompts-for)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ordinalclip-learning-rank-prompts-for/historical-color-image-dating-on-hci)](https://paperswithcode.com/sota/historical-color-image-dating-on-hci?p=ordinalclip-learning-rank-prompts-for)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ordinalclip-learning-rank-prompts-for/aesthetics-quality-assessment-on-image)](https://paperswithcode.com/sota/aesthetics-quality-assessment-on-image?p=ordinalclip-learning-rank-prompts-for)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ordinalclip-learning-rank-prompts-for/few-shot-age-estimation-on-morph-album2)](https://paperswithcode.com/sota/few-shot-age-estimation-on-morph-album2?p=ordinalclip-learning-rank-prompts-for)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ordinalclip-learning-rank-prompts-for/age-estimation-on-morph-album2-caucasian)](https://paperswithcode.com/sota/age-estimation-on-morph-album2-caucasian?p=ordinalclip-learning-rank-prompts-for)
+
 
 Created by [Wanhua Li](https://raoyongming.github.io/)\*, [Xiaoke Huang](https://xk-huang.github.io/)\*, [Zheng Zhu](http://www.zhengzhu.net/), [Yansong Tang](https://andytang15.github.io/), [Xiu Li](https://scholar.google.com/citations?hl=zh-CN&user=Xrh1OIUAAAAJ&view_op=list_works&sortby=pubdate), [Jiwen Lu](https://scholar.google.com/citations?user=TN8uDQoAAAAJ&hl=en&authuser=1)†, [Jie Zhou](https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1)
 
