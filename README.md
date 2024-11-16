@@ -6,7 +6,7 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ordinalclip-learning-rank-prompts-for/age-estimation-on-morph-album2-caucasian)](https://paperswithcode.com/sota/age-estimation-on-morph-album2-caucasian?p=ordinalclip-learning-rank-prompts-for)
 
 
-Created by [Wanhua Li](https://raoyongming.github.io/)\*, [Xiaoke Huang](https://xk-huang.github.io/)\*, [Zheng Zhu](http://www.zhengzhu.net/), [Yansong Tang](https://andytang15.github.io/), [Xiu Li](https://scholar.google.com/citations?hl=zh-CN&user=Xrh1OIUAAAAJ&view_op=list_works&sortby=pubdate), [Jiwen Lu](https://scholar.google.com/citations?user=TN8uDQoAAAAJ&hl=en&authuser=1)†, [Jie Zhou](https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1)
+Created by [Wanhua Li](https://li-wanhua.github.io/)\*, [Xiaoke Huang](https://xk-huang.github.io/)\*, [Zheng Zhu](http://www.zhengzhu.net/), [Yansong Tang](https://andytang15.github.io/), [Xiu Li](https://scholar.google.com/citations?hl=zh-CN&user=Xrh1OIUAAAAJ&view_op=list_works&sortby=pubdate), [Jiwen Lu](https://scholar.google.com/citations?user=TN8uDQoAAAAJ&hl=en&authuser=1)†, [Jie Zhou](https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1)
 
 This repository contains PyTorch implementation of "OrdinalCLIP: Learning Rank Prompts for Language-Guided Ordinal Regression".
 
